@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tgr Ög</title>
+    <style>
+        body {
+            margin: 0;
+            background: #101010;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            flex-direction: column;
+        }
+
+        /* Les yeux (sur la tête) */
+        .eye {
+            position: absolute;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            justify
+
+-content: center;  
+            align-items: center;  
+        }  
+  
+        .eye.left {  
+            left: 80px;  
+        }  
+  
+        .eye.right {  
+            right: 80px;  
+        }  
+  
+        .eye .light {  
+            width: 15px;  
+            height: 15px;  
+            border-radius: 50%;  
+            background: red; /* Par défaut : œil gauche rouge */  
+        }  
+  
+        .eye.right .light {  
+            background: green; /* Par défaut : œil droit vert */  
+        }  
+  
+        /* La bouche */  
+        .mouth {  
+            position: relative;  
+            width: 250px;  
+            height: 100px;  
+            background: #111;  
+            border-radius: 50px;  
+            overflow: hidden;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            margin-top: 50px;  
+        }  
+  
+        /* La langue */  
+        .tongue {  
+            position: absolute;  
+            bottom: 0;  
+            width: 100px;  
+            height: 50px;  
+            background: #f44336;  
+            border-radius: 50%;  
+            display: block;  
+            transition: bottom 0.3s ease;  
+        }  
+  
+        /* Retirer la langue quand ON */  
+        input[type="checkbox"]:checked ~ .mouth .tongue {  
+            bottom: -50px;  
+        }  
+  
+        /* Les dents */  
+        .teeth {  
+            position: absolute;  
+            top: 10px;  
+            display: flex;  
+            justify-content: space-between;  
+            width: 90%;  
+        }  
+  
+        .teeth div {  
+            width: 15px;  
+            height: 20px;  
+            background: #ddd;  
+            border-radius: 2px;  
+        }  
+  
+        /* Bouton glissant */  
+        input[type="checkbox"] {  
+            display: none;  
+        }  
+  
+        .toggle {  
+            position: absolute;  
+            width: 60px;  
+            height: 60px;  
+            background: #666;  
+            border-radius: 50%;  
+            cursor: pointer;  
+            transition: transform 0.3s ease, background 0.3s ease;  
+        }  
+  
+        input[type="checkbox"]:checked + .toggle {  
+            transform: translateX(120px);  
+            background: #0f0;  
+        }  
+  
+        .toggle .button {  
+            position: absolute;  
+            width: 45px;  
+            height: 45px;  
+            background: #222;  
+            border-radius: 50%;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%);  
+        }  
+  
+        /* Texte ON / OFF */  
+        .status {  
+            position: absolute;  
+            font-size: 16px;  
+            font-weight: bold;  
+            top: 50%;  
+            transform: translateY(-50%);  
+            display: none;  
+        }  
+  
+        .status.off {  
+            left: 30px;  
+        }  
+  
+        .status.on {  
+            right: 30px;  
+        }  
+  
+        input[type="checkbox"]:checked ~ .status.on {  
+            display: block;  
+        }  
+  
+        input[type="checkbox"]:not(:checked) ~ .status.off {  
+            display: block;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+          
+        <div class="eye left">  
+            <div class="light"></div>  
+        </div>  
+        <div class="eye right">  
+            <div class="light"></div>  
+        </div>  
+  
+         
+        <div class="mouth">  
+            <div class="teeth">  
+                <div></div>  
+                <div></div>  
+                <div></div>  
+                <div></div>  
+                <div></div>  
+            </div>  
+            <div class="tongue"></div>  
+            <input type="checkbox" id="toggle">  
+            <label for="toggle" class="toggle" onclick="goToLink()">  
+                <span class="button"></span>  
+            </label>  
+            
+            <div class="status off">OFF</div>  
+            <div class="status on">ON</div>  
+        </div>  
+    </div>  
+  
+    <script>  
+        function goToLink() {  
+            const checkbox = document.getElementById('toggle');  
+            if (checkbox.checked) {  
+                window.location.href = 'https://acarve-q5.myshopify.com/';  
+            }  
+        }  
+    </script>  
+</body>  
+</html>  
